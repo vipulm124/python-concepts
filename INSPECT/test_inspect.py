@@ -14,7 +14,7 @@ async def async_function():
 
 async def is_async_function(func):
     """execute the input function"""
-    if inspect.iscoroutinefunction(func):
+    if asyncio.iscoroutinefunction(func):
         await func()
     else:
         func()
@@ -22,11 +22,13 @@ async def is_async_function(func):
 
 
 async def main():
+    print("Testing async function")
+    await is_async_function(async_function)
+
     print("Testing sync function")
     await is_async_function(sync_function)
 
-    print("Testing async function")
-    await is_async_function(async_function)
+   
 
   
 
